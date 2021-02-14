@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "planets"
+s3_bucket = "my-lambda-functions-1598523"
+s3_prefix = "planets"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"

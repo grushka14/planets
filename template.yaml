@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'planets
+
+  Sample SAM Template for planets
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  kinesisKfhOutputHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://my-lambda-functions-1598523/8f9360c8ebfa102b324bc35bf0fec077
+      Handler: handlers.handlers.kinesis_kfh_output_handler
+      Runtime: python3.8
+  getAverageHandler:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://my-lambda-functions-1598523/8f9360c8ebfa102b324bc35bf0fec077
+      Handler: handlers.handlers.get_average_handler
+      Runtime: python3.8
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /events/avarage
+            Method: get
+
